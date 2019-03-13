@@ -1,0 +1,135 @@
+
+
+/* header*/
+
+
+
+
+.logo{
+    background:url(../img/logo.png) no-repeat center top;
+    height:120px;
+    width:200px;
+    /* text area width */
+}
+
+.health_head{
+    padding-top:5%;
+}
+
+.health_p{
+    font-family: Futura-Medium;
+    font-size: 26px;
+    color: #5F5D70;
+    letter-spacing: 0.26px;
+    text-align: center;
+}
+
+a{
+    color:white;
+}
+/* form*/
+
+
+.input_email{
+    background: url(../img/email.png) no-repeat   7px  #FBFAFF;
+    padding-left:30px;
+    border:none;
+    border-radius: 0 0 2px 2px;
+    height: 40px;
+
+}
+
+.input_pass{
+    background: url(../img/lock.png) no-repeat   7px #FBFAFF;
+    padding-left:30px;
+    border:none;
+    height: 40px;
+    border-radius: 0 0 2px 2px;
+}
+
+.input_repass{
+    margin-top:3%;
+    background: url(../img/lock.png) no-repeat   7px #FBFAFF;
+    padding-left:30px;
+    border:none;
+    height: 40px;
+    border-radius: 0 0 2px 2px;
+}
+
+.input_login{
+    background: url(../img/email.png) no-repeat   7px #FBFAFF;
+    padding-left:30px;
+    border:none;
+    height: 40px;
+    border-radius: 0 0 2px 2px;
+
+}
+
+.forget {
+    margin-top:20px;
+
+}
+
+.button {
+    background: #00CA9D;
+    border: none;
+    padding: 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 14px 2px 2px;
+    border-radius: 100px;
+    font-family: Futura-Medium;
+    font-size: 20px;
+    color: #FFFFFF;
+    letter-spacing: 1.2px;
+    line-height: 11px;
+    width:100%;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+
+/* footer*/
+
+.footer{
+    padding-top:20%;
+}
+.register_footer{
+    margin-top:40px;
+    display:flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.register_p {
+    font-family: Futura-Medium;
+    font-size: 12px;
+    color: #9B99A9;
+    letter-spacing: 0;
+    text-align: center;
+
+}
+
+.register_register{
+    font-family: Futura-Medium;
+    font-size: 12px;
+    color: #00CA9D;
+    text-align: center;
+}
+
+
+/* work with form*/
+
+.register{
+    display:none
+}
+
+
+
+
+#registration{
+
+}
+
+
