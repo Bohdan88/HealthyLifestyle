@@ -4,7 +4,9 @@ const schema = new Schema(
 
     {
         email: {
-            type: String
+            type: String,
+            required: true,
+            unique: true
         },
         login: {
             type: String,
@@ -16,6 +18,8 @@ const schema = new Schema(
             required: true,
 
         }
+
+
     }, {
         timestamps: true
     });

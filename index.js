@@ -5,6 +5,9 @@ const bodyParser = require('body-parser')
 const path = require('path');
 const config = require('./config')
 const staticAsset = require('static-asset')
+const session = require('express-session')
+const MongoStore = require('connect-mongo')(session)
+
 
 const routes = require('./routes')
 
@@ -28,7 +31,19 @@ mongoose.connection
 mongoose.connect('mongodb://localhost/databaseChat',  { useNewUrlParser: true ,
     useCreateIndex: true})
 
+// sessions
 
+app.use(
+    session({
+        secret:'randomPhrase',
+        resave:true,
+        saveUninitialized: false,
+        store: new MongoStore({
+            mongooseConnection: mongoose.connection
+
+        })
+    })
+);
 
 app.use(staticAsset(path.join(__dirname, 'public')))
 app.use(express.static(path.join(__dirname, 'public')))
@@ -38,10 +53,20 @@ app.set('view engine', 'ejs')
 app.use('/javascripts', express.static(path.join(__dirname, 'node_modules', 'jquery', 'dist')));
 
 app.get('/', (req,res) => {
-    res.render('index')
-})
+    const id = req.session.userId;
+    const login = req.session.userLogin;
+    res.render('index', {
+        user: {
+            id,
+            login
+        }
+    })
+});
+
+
 
 app.use('/api/auth/', routes.auth)
+app.use('/post', routes.post);
 
 //app.post('/', (req,res) => {
 //    res.render('index')

@@ -4,7 +4,6 @@
 
 
 
-
 .logo{
     background:url(../img/logo.png) no-repeat center top;
     height:120px;
@@ -131,5 +130,24 @@ a{
 #registration{
 
 }
+
+
+/* error and success*/
+
+.success
+ {
+    border: 1px solid #87bf0a;
+    font-size: 0.8em;
+    padding: 2px;
+    color: #87bf0a;
+}
+
+.error{
+    border:1px solid #e82c0c;
+    color:#e82c0c;
+
+}
+
+
 
 

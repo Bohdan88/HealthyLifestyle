@@ -2,6 +2,8 @@
 
 <%  include layout/header%>
 
+<link rel = "stylesheet" href = <%= assetFingerprint('/stylesheets/style.css') %>
+</head>
 
 <body>
 <div class = "container" id = "cont">
@@ -28,20 +30,22 @@
 
 
             <!-- input form  -->
-            <div class = "form d-flex justify-content-center">
-                <form method = "post"  id = "input" class = "login">
+            <% if(!user.id && !user.login) {%>
 
+            <div class = "form d-flex justify-content-center">
+                <form  method = "post" class = "login">
+                    <div class = "after"></div>
                     <div class="form-group d-flex justify-content-center">
-                        <input name = "name" type="text" class="form-control input_email mail" id="email"   placeholder="Login">
+                        <input name = "login" type="text" class="form-control input_email mail" id="login-button"   placeholder="Login">
 
                     </div>
 
                     <div class="form-group">
-                        <input  name = "pass" type="password" class="form-control input_pass" id="pass" placeholder="Password" required>
+                        <input  name = "password" type="password" class="form-control input_pass" id="password-button" placeholder="Password" required>
                     </div>
 
 
-                    <button type="submit" class="btn btn-primary button" id = "loginButton">Log in</button>
+                    <button type="submit" class="btn btn-primary button login-button" id = "loginButton">Log in</button>
 
 
                     <!-- <p class = "register_register forget" id = "forget"><a type = "submit">Forget the password?</a></p> -->
@@ -53,10 +57,11 @@
 
             <div class = "form d-flex justify-content-center">
                 <form  method="post" class="register">
-                    <h2>Регистрация</h2>
+                    <div class = "after"></div>
 
             <div class="form-group d-flex justify-content-center">
 
+                <input name = "email" type="text" class="form-control input_email" id="register-email"   placeholder="Email">
 
 
                     </div>
@@ -67,12 +72,12 @@
                     </div>
 
                     <div class="form-group">
-                        <input name = "pass" type="password" class="form-control input_pass" id="register-password" placeholder="Password" required>
+                        <input name = "password" type="password" class="form-control input_pass" id="register-password" placeholder="Password" required>
                     </div>
 
 
                     <div class="form-group">
-                        <input type="password" class="form-control input_repass" id="register-password-confirm" placeholder="Repeat password">
+                        <input name = "passwordConfirm" type="password" class="form-control input_repass" id="register-password-confirm" placeholder="Repeat password">
                     </div>
 
 
@@ -83,6 +88,12 @@
 
 
                 </form>
+                <% } else {%>
+                    <p>
+                        Привет, <%= user.login %>! <a href = "/api/auth/logout"> Vihod</a>
+                    </p>
+                <% } %>
+
             </div>
 
 
@@ -101,7 +112,6 @@
         </div>
     </div>
 </div>
-
 
 
 
