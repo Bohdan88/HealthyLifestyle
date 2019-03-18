@@ -149,5 +149,33 @@ a{
 }
 
 
+.content {
+    flex: 3;
 
+    min-height: 100px;
+}
+
+a{
+    color:blue!important;
+}
+
+
+
+.pagination {
+    font-size: 1.15em;
+}
+.old {
+    float: right;
+}
+
+.new {
+    float: left;
+}
+
+
+.main {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
 

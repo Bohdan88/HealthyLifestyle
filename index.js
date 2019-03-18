@@ -54,21 +54,23 @@ app.use(bodyParser.json())
 app.set('view engine', 'ejs')
 app.use('/javascripts', express.static(path.join(__dirname, 'node_modules', 'jquery', 'dist')));
 
-app.get('/', (req,res) => {
-    const id = req.session.userId;
-    const login = req.session.userLogin;
-    res.render('index', {
-        user: {
-            id,
-            login
-        }
-    })
-});
+//app.get('/', (req,res) => {
+//    const id = req.session.userId;
+//    const login = req.session.userLogin;
+//    res.render('index', {
+//        user: {
+//            id,
+//            login
+//        }
+//    })
+//});
+//
 
-
-
+// routes
 app.use('/api/auth/', routes.auth)
 app.use('/post', routes.post);
+app.use('/', routes.archive);
+
 
 //app.post('/', (req,res) => {
 //    res.render('index')
