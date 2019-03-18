@@ -48,7 +48,7 @@ $(function() {
                 }
             } else {
                 // $('.register h2').after('<p class="success">Отлично!</p>');
-                $(location).attr('href', '/');
+                $(location).attr('href', '/post/add');
             }
         });
     });

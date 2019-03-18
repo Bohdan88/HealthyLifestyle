@@ -24,13 +24,13 @@
 #post-body {
     min-height: 200px !important;
     background-color: white!important;
-    border: 1px solid grey !important;
+    border: 1px solid grey;
     padding: 8px 10px;
     outline: none;
 }
 
 .error{
-    border:1px solid #e82c0c;
+    border:1px solid #e82c0c!important;
     color:#e82c0c;
 
 }

@@ -9,7 +9,9 @@ const session = require('express-session')
 const MongoStore = require('connect-mongo')(session)
 
 
+
 const routes = require('./routes')
+
 
 // connect to MongoDB
 mongoose.Promise = global.Promise;
@@ -21,7 +23,7 @@ mongoose.connection
     .once('open', () => {
         const info = mongoose.connections[0];
         console.log(`Connected to ${info.host}: ${info.port}/${info.name} `);
-
+       // require('./mocks')()
     })
 
 
