@@ -17,25 +17,68 @@ function posts(req,res) {
         .limit(perPage)
         .then(posts => {
             models.Post.estimatedDocumentCount().then(estimatedDocumentCount => {
-                res.render('index', {
+                res.render('main', {
 
                     posts,
                     current: page,
-                    pages: Math.ceil(estimatedDocumentCount/ perPage),
+                    pages: Math.ceil(estimatedDocumentCount / perPage),
+                    user: {
+                        id: userId,
+                        login: userLogin
+                    }
+                })
+            })
+                .catch(() => {
+                    throw new Error('Server Error')
+                })
+        }).catch(() => {
+        throw new Error('Server Error')
+
+
+    });
+}
+
+router.get('/main', (req,res) => posts(req,res));
+
+
+
+router.get('/archive/:page', (req, res) => posts(req,res));
+// для доступа к постам
+
+router.get('/posts/:post', (req, res, next) => {
+    const url = req.params.post.trim().replace(/ +(?= )/g, '');
+    const userId = req.session.userId;
+    const userLogin = req.session.userLogin;
+
+    if (!url) {
+        const err = new Error('not found')
+        err.status = 404
+        next(err)
+    } else {
+        models.Post.findOne({
+            url
+        }).then(post => {
+            if (!post) {
+                const err = new Error('not found')
+                err.status = 404
+                next(err)
+            } else {
+                res.render('post/post', {
+
+                    post,
                     user: {
                         id: userId ,
                         login: userLogin
                     }
                 })
-            })
-        }).catch(console.log)
-}
+            }
+        })
+    }
+
+});
 
 
-router.get('/', (req,res) => posts(req,res));
-
-
-
-router.get('/archive/:page', (req, res) => posts(req,res));
 
 module.exports = router;
+
+
