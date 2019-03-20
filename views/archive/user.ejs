@@ -1,14 +1,7 @@
-<%  include layout/header%>
-
-<link rel = "stylesheet" href = <%= assetFingerprint('/stylesheets/style.css') %>
+<% include ../layout/header.ejs %>
 
 </head>
 <body>
-
-
-<!-- dikuha -->
-
-
 <div class="main">
     <div class="container">
         <div class="content">
@@ -26,10 +19,7 @@
                 </div>
                 <div class="bottom">
                     <div class="author">
-                        Автор:
-                        <a href="/users/<%=posts[i].owner.login %>">
-                            <%=posts[i].owner.login %>
-                        </a>
+
                     </div>
                     <a href="/">Комментарии</a>
                 </div>
@@ -38,13 +28,13 @@
 
             <div class="pagination">
                 <% if (current > 2) { %>
-                    <a class="new" href="/archive/<%= Number(current) - 1 %>">← К новым</a>
+                <a class="new" href="/users/<%=_user.login %>/<%= Number(current) - 1 %>">← К новым</a>
                 <% } %>
                 <% if (current == 2) { %>
-                    <a class="new" href="/">← На главную</a>
+                <a class="new" href="/users/<%=_user.login %>">← На первую</a>
                 <% } %>
                 <% if (pages > 0 && current < pages) { %>
-                    <a class="old" href="/archive/<%= Number(current) + 1 %>">К старым →</a>
+                <a class="old" href="/users/<%=_user.login %>/<%= Number(current) + 1 %>">К старым →</a>
                 <% } %>
 
             </div>
@@ -56,15 +46,4 @@
     </div>
 </div>
 
-
-
-
-
-
-
-
-
-
-
-
-<%  include layout/footer%>
+<% include ../layout/footer.ejs %>
