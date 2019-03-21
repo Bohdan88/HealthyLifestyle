@@ -1,6 +1,9 @@
 
 const express = require('express');
 const router = express.Router();
+const moment = require('moment');
+
+moment.locale('ru')
 
 const models = require('../models');
 
@@ -75,7 +78,11 @@ router.get('/posts/:post', async(req, res, next) => {
             } else {
 
                 const comments = await models.Comment.find({
-                    post: post.id
+                    post: post.id,
+
+                    parent: {
+                        $exists: false
+                    }
                 })
            //        //.populate({
            //        path: 'children',
@@ -94,6 +101,7 @@ router.get('/posts/:post', async(req, res, next) => {
 
                     post,
                     comments,
+                    moment,
                     user: {
                         id: userId ,
                         login: userLogin

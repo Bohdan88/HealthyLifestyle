@@ -13,7 +13,9 @@ const schema = new Schema(
 
         owner: {
             type: Schema.Types.ObjectId,
-            ref: "User"
+            ref: "User",
+            autopopulate: true
+
         },
 
         post: {
@@ -25,6 +27,7 @@ const schema = new Schema(
             type: Schema.Types.ObjectId,
             ref: "Comment",
             autopopulate: true
+
         }],
 
         createdAt: {
