@@ -73,9 +73,27 @@ router.get('/posts/:post', async(req, res, next) => {
                 err.status = 404
                 next(err)
             } else {
+
+                const comments = await models.Comment.find({
+                    post: post.id
+                })
+           //        //.populate({
+           //        path: 'children',
+           //        populate: {
+           //            path: 'children',
+           //            populate: {
+           //                path: 'children'
+           //            },
+
+           //        }
+
+           //    })
+
+                console.log(comments)
                 res.render('post/post', {
 
                     post,
+                    comments,
                     user: {
                         id: userId ,
                         login: userLogin

@@ -26,6 +26,7 @@
     "jquery": "^3.3.1",
     "medium-editor": "^5.23.3",
     "mongoose": "^5.4.19",
+    "mongoose-autopopulate": "^0.9.1",
     "mongoose-url-slugs": "^1.0.2",
     "session": "^0.1.0",
     "static-asset": "^0.6.0",

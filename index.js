@@ -81,7 +81,7 @@ app.get('/', (req,res) => {
 app.use('/api/auth/', routes.auth)
 app.use('/post', routes.post);
 app.use('/', routes.archive);
-
+app.use('/comment', routes.comment)
 
 //app.post('/', (req,res) => {
 //    res.render('index')
