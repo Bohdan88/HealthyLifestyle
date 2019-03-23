@@ -6,16 +6,16 @@
 
     <% items.forEach(function(item){ %>
         <li id="<%= item.id %>">
-            <div class = "head">
-                <a href = "/users/<%= item.owner.login %>">
+            <div class="head">
+                <a href="/users/<%= item.owner.login %>">
                     <%= item.owner.login %>
                 </a>
-            <spam class = "date">
-                <%=  moment(item.createdAt).fromNow() %>
-            </spam>
+                <spam class="date">
+                    <%= moment(item.createdAt).fromNow(); %>
+                </spam>
             </div>
             <%= item.body %>
-            <span class="link" id="reply">ответить</span>
+            <span class="link reply">ответить</span>
             <%- include('./comments.ejs', {items: item.children}) %>
         </li>
     <% }) %>

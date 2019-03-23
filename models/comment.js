@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
+const Post =  require('./post')
 
 
 const schema = new Schema(
@@ -44,6 +45,16 @@ const schema = new Schema(
     }, {
         timestamps: false
     });
+
+
+schema.pre('save',  async function(next) {
+    if (this.isNew) {
+      //  console.log(this.post)
+        await Post.incCommentCount(this.post)
+
+    }
+    next();
+});
 
 schema.plugin(require('mongoose-autopopulate'));
 

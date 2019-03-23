@@ -10,8 +10,6 @@ $('input').on('focus', ()=>{
 
 
 
-
-
 /*  animate form */
 $(function() {
 

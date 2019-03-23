@@ -5,7 +5,7 @@ $(function() {
     let commentForm;
     let parentId;
     // addForm
-    $('#new, #reply').on('click', function() {
+    $('.reply').on('click', function() {
 
             if (commentForm) {
                 commentForm.remove();

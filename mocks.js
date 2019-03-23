@@ -1,22 +1,23 @@
 
-//onst faker = require('faker')
-//onst TurndownService = require('turndown')
+const faker = require('faker')
+const  TurndownService = require('turndown')
 
-//onst models = require('./models')
+const models = require('./models')
 
-//onst owner = '5c8f0fb9ee6a5ee61ac10246'
+const owner = '5c8f0f5eea86b3e5fe18c5e5'
 
-//odule.exports = () => {
-//   models.Post.remove().then(() => {
-//       Array.from({length: 20}).forEach(( _ , i)=>{
+module.exports = () => {
+    models.Post.remove().then(() => {
+        Array.from({length: 20}).forEach((_, i) => {
 
-//           const turndownService = new TurndownService()
+            const turndownService = new TurndownService()
 
-//           models.Post.create({
-//               title: faker.lorem.words(5),
-//               body: turndownService.turndown(faker.lorem.words(100)),
-//               owner
-//           }).then(console.log).catch(console.log)
-//       })
-//   }).catch(console.log)
-//
+            models.Post.create({
+                title: faker.lorem.words(5),
+                body: turndownService.turndown(faker.lorem.words(100)),
+                owner
+            }).then(console.log).catch(console.log)
+        })
+    }).catch(console.log)
+
+}
