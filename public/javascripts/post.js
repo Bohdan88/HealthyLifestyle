@@ -40,7 +40,7 @@ $(function() {
         }).done(function(data) {
             console.log(data);
             if (!data.ok) {
-                $('.post-form h2').after('<p class="error">' + data.error + '</p>');
+                $('.post-form h2').after(`<p class="error">` + data.error + `</p>`);
                 if (data.fields) {
                     data.fields.forEach(function(item) {
                         $('#post-' + item).addClass('error');

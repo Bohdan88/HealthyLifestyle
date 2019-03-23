@@ -4,31 +4,38 @@ $(function() {
 
     let commentForm;
     let parentId;
-    // addForm
-    $('.reply').on('click', function() {
 
-            if (commentForm) {
-                commentForm.remove();
-            }
+    function form(isNew, comment) {
+        $('.reply').show();
 
-            parentId = null;
-        commentForm  = $('.comment').clone(true, true);
+        if (commentForm) {
+            commentForm.remove();
+        }
+        parentId = null;
 
-        if ($(this).attr('id') === 'new') {
-            commentForm.appendTo('.comment-list')
+        commentForm = $('.comment').clone(true, true);
+
+        if (isNew) {
+            commentForm.find('.cancel').hide();
+            commentForm.appendTo('.comment-list');
         } else {
-            let parentComment = $(this).parent()
-
-            parentId = parentComment.attr('id')
-            $(this).after(commentForm);
-
+            var parentComment = $(comment).parent();
+            parentId = parentComment.attr('id');
+            $(comment).after(commentForm);
         }
 
-        commentForm.css({ display: 'flex'})
+        commentForm.css({ display: 'flex' });
+    }
 
+    // load
+    form(true);
+
+    // add form
+    $('.reply').on('click', function() {
+        form(false, this);
+        $(this).hide();
     });
-
-    // cancel form
+    // add form
 
 
     $('form.comment .cancel').on('click', function(e) {
@@ -36,6 +43,7 @@ $(function() {
         e.preventDefault();
         commentForm.remove();
 
+        form(true);
 
     });
 
@@ -61,16 +69,25 @@ $(function() {
         }).done(function(data) {
             console.log(data);
             if (!data.ok) {
-                $('.post-form h2').after('<p class="error">' + data.error + '</p>');
-                if (data.fields) {
-                    data.fields.forEach(function(item) {
-                        $('#post-' + item).addClass('error');
-                    });
+                if ( data.error === undefined) {
+                    data.error = 'Unknown error'
                 }
+
+                $(commentForm).prepend(`<p class = "error">` + data.error + `</p>`)
             } else {
-                // $('.register h2').after('<p class="success">Отлично!</p>');
-                $(location).attr('href', '/post/add');
+                var newComment =
+                    '<ul><li style="background-color:#ffffe0;"><div class="head"><a href="/users/' +
+                    data.login +
+                    '">' +
+                    data.login +
+                    '</a><spam class="date">Только что</spam></div>' +
+                    data.body +
+                    '</li></ul>';
+
+                $(commentForm).after(newComment);
+                form(true);
             }
+
         });
     });
 });
