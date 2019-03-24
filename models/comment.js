@@ -47,15 +47,12 @@ const schema = new Schema(
     });
 
 
-schema.pre('save',  async function(next) {
-    if (this.isNew) {
-      //  console.log(this.post)
-        await Post.incCommentCount(this.post)
-
-    }
-    next();
-});
-
+//schema.pre('save',  async function(next) {
+//
+//    this.url = tr.slugify(this.title)
+//    next();
+//});
+//
 schema.plugin(require('mongoose-autopopulate'));
 
 

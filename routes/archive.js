@@ -18,7 +18,10 @@ const models = require('../models');
 
 
 
-  models.Post.find({})
+  models.Post.find({
+
+      status: 'published'
+  })
       .skip(perPage * page - perPage)
       .limit(perPage)
       .populate('owner')
@@ -61,14 +64,16 @@ router.get('/posts/:post', async(req, res, next) => {
 
     if (!url) {
         const err = new Error('not found')
-        err.status = 404
+        err.status = 404;
         next(err)
     } else {
 
         try {
 
             const post = await models.Post.findOne({
-               url
+               url,
+                status: 'published'
+
             });
 
             if (!post) {

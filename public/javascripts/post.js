@@ -2,6 +2,12 @@
 
 
 $(function() {
+
+    // remove errors
+    function removeErrors() {
+        $('.post-form p.error').remove();
+        $('.post-form input, #post-body').removeClass('error');
+    }
     // eslint-disable-next-line
  //   var editor = new MediumEditor('#post-body', {
  //       placeholder: {
@@ -12,17 +18,29 @@ $(function() {
 
     // clear
     $('.post-form input, #post-body').on('focus', function() {
-        $('.post-form p.error').remove();
-        $('.post-form input, #post-body').removeClass('error');
+        removeErrors();
+      //  $('.post-form p.error').remove();
+      //  $('.post-form input, #post-body').removeClass('error');
     });
 
     // publish
-    $('.publish-button').on('click', function(e) {
+    $('.publish-button, .save-button').on('click', function(e) {
         e.preventDefault();
+        removeErrors();
+
+        var isDraft =
+            $(this)
+                .attr('class')
+                .split(' ')[0] === 'save-button';
+
 
         var data = {
             title: $('#post-title').val(),
-            body: $('#post-body').val()
+            body: $('#post-body').val(),
+            isDraft: isDraft,
+            postId: $('#post-id').val(),
+
+
         };
 
         $.ajax({
@@ -40,8 +58,15 @@ $(function() {
                     });
                 }
             } else {
+
+                if (isDraft)  {
+                    $(location).attr('href', '/post/edit/' + data.post.id);
+                } else {
+                    $(location).attr('href', '/posts/' + data.post.url);
+
+                }
                 // $('.register h2').after('<p class="success">Отлично!</p>');
-                $(location).attr('href', '/post/add');
+             //   $(location).attr('href', '/post/add');
             }
         });
     });
