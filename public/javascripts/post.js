@@ -1,12 +1,5 @@
 
 
-var editor = new MediumEditor('#post-body', {
-        placeholder: {
-            text: '',
-            hideOnClick: true
-        }
-        });
-
 
 $(function() {
     // eslint-disable-next-line
@@ -29,7 +22,7 @@ $(function() {
 
         var data = {
             title: $('#post-title').val(),
-            body: $('#post-body').html()
+            body: $('#post-body').val()
         };
 
         $.ajax({
@@ -52,6 +45,34 @@ $(function() {
             }
         });
     });
+
+
+    // uploads photochki
+
+    $('#fileinfo').on('submit', function(e) {
+        e.preventDefault();
+
+        var formData = new FormData(this);
+
+
+        $.ajax({
+            type: 'POST',
+            url: '/upload/image',
+            data: formData,
+            processData: false,
+            contentType:  false,
+            success: function (r) {
+                console.log(r)
+            },
+
+            error: function (err) {
+                console.log(err)
+            }
+        })
+    });
+
+
+
 });
 
 /* eslint-enable no-undef */

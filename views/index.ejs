@@ -109,10 +109,25 @@
 
 
                 </form>
-                <% } else {%>
-                    <p>
-                        Привет, <%= user.login %>! <a href = "/api/auth/logout"> Vihod</a>
-                    </p>
+                <% } else { %>
+                    <ul>
+                        <li>Привет,
+                            <a href="/users/<%= user.login %>">
+                                <%= user.login %>
+                            </a>!</li>
+                        <li>
+                            <a href="/post/add">Добавить пост</a>
+                        </li>
+
+                        <li>
+                            <a href="/archive/indexx">Все посты</a>
+                        </li>
+
+
+                        <li>
+                            <a href="/api/auth/logout">Выйти</a>
+                        </li>
+                    </ul>
                 <% } %>
 
             </div>
