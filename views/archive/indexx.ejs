@@ -19,15 +19,15 @@
                         <a href="/posts/<%=posts[i].url %>">
                             <%=posts[i].title %>
                         </a>
-
-                        <% if( posts[i].owner.login === user.login){ %>
-
-                                <a  style = "color:black; text-decoration:none;" href = "/post/edit/<%=posts[i].id %>">✎</a>
-                       <% }%>
+                        <% if (posts[i].owner.login === user.login) { %>
+                        <a style="color: black;text-decoration: none;" href="/post/edit/<%=posts[i].id %>">✎</a>
+                        <% } %>
                     </h2>
                 </div>
                 <div class="body">
-                    <p><%=posts[i].body %></p>
+                    <p>
+                        <%=posts[i].body %>
+                    </p>
                 </div>
                 <div class="bottom">
                     <div class="author">
@@ -36,9 +36,9 @@
                             <%=posts[i].owner.login %>
                         </a>
                     </div>
-
                     <a href="/posts/<%=posts[i].url %>#<%=posts[i].id %>">Комментарии:
-                        <%=posts[i].commentCount %> </a>
+                        <%=posts[i].commentCount %>
+                    </a>
                 </div>
             </div>
             <% } %>
@@ -63,15 +63,4 @@
     </div>
 </div>
 
-
-
-
-
-
-
-
-
-
-
-
-<%  include ../layout/footer%>
+<% include ../layout/footer.ejs %>

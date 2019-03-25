@@ -179,3 +179,15 @@ a{
     flex-grow: 1;
 }
 
+
+.img-container {
+    height: 50px;
+    border: 1px solid gray
+}
+
+img {
+    height: 100%;
+}
+
+
+

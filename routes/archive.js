@@ -1,4 +1,3 @@
-
 const express = require('express');
 const router = express.Router();
 const moment = require('moment');
@@ -8,7 +7,7 @@ moment.locale('ru')
 const models = require('../models');
 
 
- function posts(req,res) {
+function posts(req,res) {
     const userId = req.session.userId;
     const userLogin = req.session.userLogin;
     //
@@ -18,37 +17,37 @@ const models = require('../models');
 
 
 
-  models.Post.find({
+    models.Post.find({
 
-      status: 'published'
-  })
-      .skip(perPage * page - perPage)
-      .limit(perPage)
-      .populate('owner')
-      .sort({createdAt: -1})
-      .then(posts => {
-          models.Post.estimatedDocumentCount()
-              .then(estimatedDocumentCount => {
-              res.render('archive/indexx', {
-                  posts,
-                  current: page,
-                  pages: Math.ceil(estimatedDocumentCount / perPage),
-                  user: {
-                      id: userId,
-                      login: userLogin
-                  }
-              })
-          })
-              .catch(() => {
-                  throw new Error('Server Error')
-              })
-      }).catch(() => {
-      throw new Error('Server Error')
+        status: 'published'
+    })
+        .skip(perPage * page - perPage)
+        .limit(perPage)
+        .populate('owner')
+        .sort({createdAt: -1})
+        .then(posts => {
+            models.Post.estimatedDocumentCount()
+                .then(estimatedDocumentCount => {
+                    res.render('archive/indexx', {
+                        posts,
+                        current: page,
+                        pages: Math.ceil(estimatedDocumentCount / perPage),
+                        user: {
+                            id: userId,
+                            login: userLogin
+                        }
+                    })
+                })
+                .catch(() => {
+                    throw new Error('Server Error')
+                })
+        }).catch(() => {
+        throw new Error('Server Error')
 
 
-  })
+    })
 
-  }
+}
 
 router.get('/main', (req,res) => posts(req,res));
 
@@ -71,7 +70,7 @@ router.get('/posts/:post', async(req, res, next) => {
         try {
 
             const post = await models.Post.findOne({
-               url,
+                url,
                 status: 'published'
 
             });
@@ -89,17 +88,17 @@ router.get('/posts/:post', async(req, res, next) => {
                         $exists: false
                     }
                 })
-           //        //.populate({
-           //        path: 'children',
-           //        populate: {
-           //            path: 'children',
-           //            populate: {
-           //                path: 'children'
-           //            },
+                //        //.populate({
+                //        path: 'children',
+                //        populate: {
+                //            path: 'children',
+                //            populate: {
+                //                path: 'children'
+                //            },
 
-           //        }
+                //        }
 
-           //    })
+                //    })
 
                 console.log(comments)
                 res.render('post/post', {
@@ -119,11 +118,11 @@ router.get('/posts/:post', async(req, res, next) => {
         }
 
 
-   // //    models.Post.findOne({
-   //         url
-   //     }).then(post => {
+        // //    models.Post.findOne({
+        //         url
+        //     }).then(post => {
 //
-   //     });
+        //     });
     }
 
 });
@@ -140,23 +139,23 @@ router.get('/users/:login/:page*?', async (req, res) => {
     try {
         const user = await
             models.User.findOne({
-            // берем логин от юзера
-            login
-        });
+                // берем логин от юзера
+                login
+            });
 
         const posts = await
             models.Post.find({
-            //  получаем айдишник юзера по посту
-            owner: user.id
-        })
-            .skip(perPage * page - perPage)
-            .limit(perPage)
-            .sort({ createdAt: -1 });
+                //  получаем айдишник юзера по посту
+                owner: user.id
+            })
+                .skip(perPage * page - perPage)
+                .limit(perPage)
+                .sort({ createdAt: -1 });
 
-            const count  = await
-                models.Post.estimatedDocumentCount({
-            owner: user.id
-        });
+        const count  = await
+            models.Post.estimatedDocumentCount({
+                owner: user.id
+            });
 
         res.render('archive/user', {
             posts,
@@ -174,45 +173,43 @@ router.get('/users/:login/:page*?', async (req, res) => {
         throw new Error ('Server error')
     }
 
-  ////  models.User.findOne({
-  ////      // берем логин от юзера
-  ////      login
-  ////  }).then(user => {
-  ////      models.Post.find({
-  ////          //  получаем айдишник юзера по посту
-  ////          owner: user.id
-  ////      })
-  ////          .skip(perPage * page - perPage)
-  ////          .limit(perPage)
-  ////          .sort({ createdAt: -1 })
-  ////          .then(posts => {
-  ////              models.Post.estimatedDocumentCount({
-  ////                  owner: user.id
-  ////              })
-  ////                  .then(count => {
-  ////                      res.render('archive/user', {
-  ////                          posts,
-  ////                          _user: user,
-  ////                          current: page,
-  ////                          pages: Math.ceil(count / perPage),
-  ////                          user: {
-  ////                              id: userId,
-  ////                              login: userLogin
-  ////                          }
-  ////                      });
-  ////                  })
-  ////                  .catch(() => {
-  ////                      throw new Error('Server Error');
-  ////                  });
-  ////          })
-  //          .catch(() => {
-  //              throw new Error('Server Error');
-  //          });
-  //  });
+    ////  models.User.findOne({
+    ////      // берем логин от юзера
+    ////      login
+    ////  }).then(user => {
+    ////      models.Post.find({
+    ////          //  получаем айдишник юзера по посту
+    ////          owner: user.id
+    ////      })
+    ////          .skip(perPage * page - perPage)
+    ////          .limit(perPage)
+    ////          .sort({ createdAt: -1 })
+    ////          .then(posts => {
+    ////              models.Post.estimatedDocumentCount({
+    ////                  owner: user.id
+    ////              })
+    ////                  .then(count => {
+    ////                      res.render('archive/user', {
+    ////                          posts,
+    ////                          _user: user,
+    ////                          current: page,
+    ////                          pages: Math.ceil(count / perPage),
+    ////                          user: {
+    ////                              id: userId,
+    ////                              login: userLogin
+    ////                          }
+    ////                      });
+    ////                  })
+    ////                  .catch(() => {
+    ////                      throw new Error('Server Error');
+    ////                  });
+    ////          })
+    //          .catch(() => {
+    //              throw new Error('Server Error');
+    //          });
+    //  });
 });
 
 
 
 module.exports = router;
-
-
