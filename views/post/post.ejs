@@ -16,20 +16,20 @@
                     </h2>
                 </div>
                 <div class="body">
-                    <p>
-                        <%=post.body %>
-                    </p>
+
+                        <%-post.body %>
+
                 </div>
                 <div class="bottom">
-                    <div class="author">
-                        Автор:
+                  <!--  <div class="author">
+                        Author:
                         <a href="/">Гедеван</a>
-                    </div>
+                    </div> -->
                 </div>
             </div>
 
             <div class="comments" id="<%=post.id %>">
-                <h3>Комментарии</h3>
+                <h3>Comments</h3>
                 <!-- Где будут храниться комменты -->
                 <div class="comment-list">
                     <%- include('../layout/comments.ejs', {items: comments}) %>
@@ -38,8 +38,8 @@
                     <form class="comment">
                         <textarea name="body"></textarea>
                         <div class="buttons">
-                            <button class="cancel secondary">Отмена</button>
-                            <button class="send">Отправить</button>
+                            <button class="cancel secondary">Cancel</button>
+                            <button class="send">Send</button>
                         </div>
                     </form>
                 </div>

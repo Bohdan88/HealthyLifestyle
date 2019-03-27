@@ -2,10 +2,15 @@
 
 <%  include layout/header%>
 
+
 <link rel = "stylesheet" href = <%= assetFingerprint('/stylesheets/style.css') %>
+
+
 </head>
 
 <body>
+
+<% if(!user.id && !user.login) {%>
 <div class = "container" id = "cont">
     <div class="row">
         <div class = "col-sm-12 health_head">
@@ -25,17 +30,32 @@
 
                 </div>
             </div>
+<% } else {%>
+
+            <div class = "container" id = "cont">
+                <div class="row">
+                    <div class = "col-sm-12 health_head">
+                        <div class = "col-lg-12">
+                            <div class="d-flex justify-content-center">
+                                <p class = "health_p">
+                                    Healthy Lifestyle
+                                </p>
+                            </div>
+
+                            <div class = "col-lg-12">
+                                <div class = "d-flex justify-content-center">
+
+                                    <div class = "logo"></div>
+                                </div>
+
+
+                            </div>
+                        </div>
 
 
 
 
-
-
-
-
-
-
-
+<%}%>
 
 
 
@@ -110,22 +130,27 @@
 
                 </form>
                 <% } else { %>
-                    <ul>
-                        <li>Привет,
+
+                    <div class = "header_user">
+                       Hello
                             <a href="/users/<%= user.login %>">
                                 <%= user.login %>
-                            </a>!</li>
+                            </a>
+
+                    </div>
+                    <ul>
+
                         <li>
-                            <a href="/post/add">Добавить пост</a>
+                            <a href="/post/add">Add post</a>
                         </li>
 
                         <li>
-                            <a href="/archive/indexx">Все посты</a>
+                            <a href="/archive/indexx">All posts</a>
                         </li>
 
 
                         <li>
-                            <a href="/api/auth/logout">Выйти</a>
+                            <a href="/api/auth/logout">Logout</a>
                         </li>
                     </ul>
                 <% } %>
@@ -133,18 +158,23 @@
             </div>
 
 
-
+            <% if(!user.id && !user.login) {%>
             <div class = "footer">
                 <div class = "register_footer">
-                    <button type = "submit" class = "switch_button">go to  Register</button>
+
 
                     <p class = "register_p"> Not a member yet?</p>
+
+                    <a  class = "switch_button">Register</a>
+
                     <!-- <p class = "register_register active" id = "lowRegister"><a onclick = "toggle()">Register</a></p> </button> -->
                     <!--  <p class = "register_register active mail" id = "lowLogin"><a onclick = "toggle()">Login</a></p> -->
 
                 </div>
 
             </div>
+
+            <% }%>
         </div>
     </div>
 </div>

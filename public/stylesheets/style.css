@@ -15,6 +15,7 @@
     padding-top:5%;
 }
 
+
 .health_p{
     font-family: Futura-Medium;
     font-size: 26px;
@@ -89,6 +90,9 @@ a{
 }
 
 
+
+
+
 /* footer*/
 
 .footer{
@@ -103,7 +107,7 @@ a{
 
 .register_p {
     font-family: Futura-Medium;
-    font-size: 12px;
+    font-size: 15px;
     color: #9B99A9;
     letter-spacing: 0;
     text-align: center;
@@ -116,6 +120,25 @@ a{
     color: #00CA9D;
     text-align: center;
 }
+
+
+
+.switch_button{
+    color: #00CA9D!important;
+    cursor:pointer;
+
+    text-align:center;
+    text-decoration: none;
+}
+
+switch_button:hover
+{
+
+    color:#0072ca;
+    text-decoration:none;
+    cursor:pointer;
+}
+
 
 
 /* work with form*/
@@ -188,6 +211,22 @@ a{
 img {
     height: 100%;
 }
+
+
+
+
+/*  profile page */
+
+.header_user{
+    text-align: center;
+    height: 240px;
+    width: 100%;
+    background-image: linear-gradient(-231deg, #00CA9D 0%, #AEEFAA 69%, #FBFFC1 100%);
+
+}
+
+
+
 
 
 

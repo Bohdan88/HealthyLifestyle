@@ -25,9 +25,9 @@
                     </h2>
                 </div>
                 <div class="body">
-                    <p>
-                        <%=posts[i].body %>
-                    </p>
+
+                        <%-posts[i].body %>
+
                 </div>
                 <div class="bottom">
                     <div class="author">
@@ -36,7 +36,7 @@
                             <%=posts[i].owner.login %>
                         </a>
                     </div>
-                    <a href="/posts/<%=posts[i].url %>#<%=posts[i].id %>">Комментарии:
+                    <a href="/posts/<%=posts[i].url %>#<%=posts[i].id %>">Comments:
                         <%=posts[i].commentCount %>
                     </a>
                 </div>
@@ -45,13 +45,13 @@
 
             <div class="pagination">
                 <% if (current > 2) { %>
-                    <a class="new" href="/archive/<%= Number(current) - 1 %>">← К новым</a>
+                    <a class="new" href="/archive/<%= Number(current) - 1 %>">← To new</a>
                 <% } %>
                 <% if (current == 2) { %>
-                    <a class="new" href="/">← На главную</a>
+                    <a class="new" href="/">← To main</a>
                 <% } %>
                 <% if (pages > 0 && current < pages) { %>
-                    <a class="old" href="/archive/<%= Number(current) + 1 %>">К старым →</a>
+                    <a class="old" href="/archive/<%= Number(current) + 1 %>">To old →</a>
                 <% } %>
 
             </div>

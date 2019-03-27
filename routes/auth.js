@@ -23,7 +23,7 @@ router.post('/register', (req, res) => {
 
         res.json({
             ok: false,
-            error: 'Все поля должны быть заполнены!',
+            error: 'Should be no empty fields',
             fields
         });
 
@@ -31,13 +31,13 @@ router.post('/register', (req, res) => {
     }  else if (!/^[a-zA-Z0-9]+$/.test(login)) {
         res.json({
             ok: false,
-            error: 'Логин может быть только английским',
+            error: 'Login should be in English',
             fields: ['login']
         });
     } else if ( password.length < 5) {
         res.json({
             ok: false,
-            error: 'Пассик Должен быть польше пяти символов',
+            error: 'Password should be more than 5 symbols',
             fields: ['password']
         });
     }
@@ -49,13 +49,14 @@ router.post('/register', (req, res) => {
     else if (login.length < 3 || login.length > 16) {
         res.json({
             ok: false,
-            error: 'Длина логина от 3 до 16 символов!',
+
+            error: 'Login length from three to six characters!',
             fields: ['login']
         });
     } else if (password !== passwordConfirm) {
         res.json({
             ok: false,
-            error: 'Пароли не совпадают!',
+            error: 'Passwords do not match',
             fields: ['password', 'passwordConfirm']
         });
     } else {
@@ -79,7 +80,7 @@ router.post('/register', (req, res) => {
                             console.log(err);
                             res.json({
                                 ok:false,
-                                error: 'Ошибка, попробуйте позже'
+                                error: 'Error, try later'
                             });
                         });
                     });
@@ -87,7 +88,7 @@ router.post('/register', (req, res) => {
             } else {
                     res.json({
                         ok: false,
-                        error:  "Имя занято!",
+                        error:  "Name is taken",
                         fields: ['login']
                     })
                 }
@@ -118,7 +119,7 @@ router.post('/login', (req, res) => {
 
         res.json({
             ok: false,
-            error: 'Все поля должны быть заполнены!',
+            error: 'Should be no empty fields!',
             fields
         });
 
@@ -131,7 +132,7 @@ router.post('/login', (req, res) => {
             if (!user) {
               res.json({
                   ok: false ,
-                  error: 'Логин и пароль неверны!',
+                  error: 'Login and password are wrong',
                   fields: ['login', 'password']
 
               })
@@ -142,7 +143,7 @@ router.post('/login', (req, res) => {
                     if (!result) {
                         res.json({
                             ok: false ,
-                            error: 'Логин и пароль неверны!',
+                            error: 'Login and password are wrong',
                             fields: ['login', 'password']
 
                         })
@@ -162,7 +163,7 @@ router.post('/login', (req, res) => {
                 console.log(err);
                 res.json({
                     ok:false,
-                    error:'Ошибка , попробуйте позже'
+                    error:'Error, try later'
                 })
             })
 
