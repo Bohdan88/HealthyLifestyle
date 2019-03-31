@@ -5,7 +5,7 @@ const config = require('../config');
 
 const showdown  = require('showdown')
 
-moment.locale('ru')
+moment.locale('en')
 
 const models = require('../models');
 

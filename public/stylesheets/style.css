@@ -1,7 +1,22 @@
 
 
-/* header*/
+/* */
 
+
+ul {
+    list-style-type: none;
+    padding-left:20px;
+}
+
+
+
+a {
+
+    text-decoration: none;
+    color:#404040
+
+}
+/* header*/
 
 
 .logo{
@@ -24,9 +39,8 @@
     text-align: center;
 }
 
-a{
-    color:white;
-}
+
+
 /* form*/
 
 
@@ -178,9 +192,6 @@ switch_button:hover
     min-height: 100px;
 }
 
-a{
-    color:blue!important;
-}
 
 
 
@@ -217,15 +228,130 @@ img {
 
 /*  profile page */
 
-.header_user{
-    text-align: center;
-    height: 240px;
-    width: 100%;
-    background-image: linear-gradient(-231deg, #00CA9D 0%, #AEEFAA 69%, #FBFFC1 100%);
 
+
+
+
+
+/* navigation in profile*/
+
+.sidenav {
+    overflow: hidden;
+    background-color: #333;
+
+}
+.closebtn{
+    display:none!important;
+}
+
+.sidenav a {
+    float: left;
+    display: block;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+.hide{
+    display:none;
 }
 
 
+
+
+@media screen and (max-width: 600px) {
+    .sidenav a:not(:last-child) {display: none;}
+
+    .closebtn{
+        display:block!important;
+
+    }
+    .hide{
+        display:block;
+        position: fixed;
+
+        top: 0;
+        left: 0;
+        margin-top:5px;
+        margin-left:5px;
+        color:#000;
+
+    }
+
+    .sidenav a.icon {
+        float: left;
+        display: block;
+
+    }
+
+    .sidenav{
+        height: 100%;
+        width:0;
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        background-color:#fff;
+        transition: 0.5s;
+        overflow-x: hidden;
+
+
+    }
+
+    a {
+    }
+}
+
+
+
+@media screen and (max-width: 600px) {
+    .sidenav.responsive .icon {
+        position: absolute;
+        right: 0;
+        top: 0;
+
+    }
+    .sidenav.responsive a {
+        float: none;
+        display: block;
+        text-align: left;
+    }
+
+
+
+    /* banner in profile*/
+
+    .banner{
+        position:relative;
+        background:url('../img/rsz_banner.jpg') no-repeat;
+        width:100%;
+        height:21%;
+    }
+
+    .hi_user{
+        position: absolute;
+        bottom: 0;
+        font-family: Futura-Medium;
+        font-size: 16px;
+        color: black!important;
+        margin-left:10%;
+    }
+
+
+    .navigation {
+       padding-top:25px;
+    }
+
+
+}
+
+.navigation{
+    pointer:cursor;
+}
+
+.navigation:hover {
+    color:#202020;
+}
 
 
 

@@ -11,6 +11,7 @@
   "author": "Bohdan",
   "license": "ISC",
   "devDependencies": {
+    "@fortawesome/fontawesome-free": "^5.8.1",
     "eslint": "^5.15.1",
     "nodemon": "^1.18.10"
   },

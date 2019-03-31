@@ -109,7 +109,7 @@ router.post('/add', async (req, res) => {
         } else if (!postId) {
             res.json({
                 ok: false
-            });
+            })
         } else {
             try {
                 const post = await models.Post.findOneAndUpdate(
@@ -132,7 +132,7 @@ router.post('/add', async (req, res) => {
                 if (!post) {
                     res.json({
                         ok: false,
-                        error: 'Пост не твой!'
+                        error: 'It is not your post'
                     });
                 } else {
                     res.json({
