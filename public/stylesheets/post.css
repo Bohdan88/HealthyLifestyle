@@ -1,5 +1,19 @@
 
+ul {
+    list-style-type: none;
+    padding-left:20px;
+}
 
+
+
+a {
+
+    text-decoration: none;
+    color:#404040
+
+}
+
+/*
 .post {
     display: flex;
     flex-direction: column;
@@ -9,12 +23,18 @@
     border-radius: 2px;
 
 }
+*/
+
+.logo{
+    background:url(../img/logo.png) no-repeat center top;
+    height:120px;
+    width:200px;
+}
 
 .add-post {
-    margin-top:100px;
+    margin-left:120px;
     width: 100%;
     min-height: 100px;
-    border: 1px solid gray;
     background-color: white;
     border-radius: 5px;
 }
@@ -22,7 +42,7 @@
 
 
 #post-body {
-    min-height: 200px !important;
+    min-height: 450px !important;
     background-color: white!important;
     border: 1px solid grey;
     padding: 8px 10px;
@@ -36,11 +56,373 @@
 }
 
 
+.file{
+    position:relative;
+    left:15px;
+}
+.button {
+    position:relative;
+}
+/*
+.add-post{
+    margin-top: -30px;
+    margin-right: 120px;
+    margin-left: 30px;
+}
+*/
+/*  profile page header desktop  */
+
+.content{
+    margin-top:30px;
+    margin-right:140px;
+}
+
+.post-form{
+    padding: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    background-color: #fff;
+    margin-top: 20px;
+    border-radius: 5px;
+    margin-bottom: 50px;
+}
+
+.desktop_header{
+    padding-left:1px!important;
+    padding-right:1px!important;
+
+}
+
+.display-4{
+    font-size: 2.5rem;
+    float:left;
+    padding:4px;
+}
+
+.header_desktop{
+    color:#F0F0F0;
+    height:100px;
+    width:100%;
+    font-family: Futura-Medium;
+    background: #00CA9D;
+}
+
+.jumbotron{
+
+    padding:1em!important;
+}
+
+.body_indexx{
+    background:#edeef0;
+    overflow-x: hidden;
+}
+
+
+
+.hi_user{
+    float:right;
+    font-size:26px;
+    padding-top:12px;
+}
+
+.banner{
+    position:relative;
+    background:url('../img/rsz_banner.jpg') no-repeat;
+    width:100%;
+    height:21%;
+}
+
+/* navigation in profile*/
+
+.sidenav {
+    overflow: hidden;
+    background-color: #fff;
+    z-index:100;
+
+}
+.closebtn{
+    display:none!important;
+}
+
+.sidenav a {
+    float: left;
+    display: block;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+    z-index:100;
+
+}
+.hide{
+    display:none;
+}
+
+.hi_user{
+    float:right;
+    font-size:26px;
+    padding-top:12px;
+}
+
+
+.archive_p{
+    display:none;
+}
+.nav{
+    display:none;
+}
+
+/* desktop menu*/
+.desktop_sidenav{
+    margin-top:-30px;
+    position:relative;
+    float:left;
+    width: 180px;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    font-family: nkMacSystemFont,Roboto,Helvetica Neue,sans-serif;
+    font-weight:400;
+    overflow-x: hidden;
+    padding-top: 20px;
+}
+
+.desktop_sidebar{
+    margin: 0 0 10px;
+    font-size: 12.5px;
+    cursor: pointer;
+
+}
+
+.li_icon{
+    margin-right:8px;
+}
+
+
+
+
+.desktop_sidebar_li{
+    padding:6px;
+
+    font-size:14px;
+}
+
+.desktop_sidebar_li:hover{
+    width:80%;
+    background:#C0C0C0;
+}
+
+
+a:hover{
+    text-decoration: none;
+    color:inherit;
+}
+
+img{
+    display:block;
+    width:40%;
+}
+
+
 
 /* comments styles */
 
 form.comment {
     display:none;
+}
+
+.caption{
+    margin-top:20px;
+}
+
+
+
+
+.old {
+    font-weight: 500;
+    border:2px solid #00CA9D;
+    padding:10px;
+    float:right;
+    font-family: Futura-Medium;
+    color:#00CA9D;
+    background: #fff;
+    border-radius: 5px;
+    width:150px;
+}
+
+.new{
+    margin-right:-2px;
+    font-weight: 500;
+    background: #00CA9D;
+    margin-left:20px;
+    font-family: Futura-Medium;
+    padding:10px;
+    float:right;
+    color:#fff;
+    border-radius: 5px;
+    width:150px;
+
+}
+
+
+/* body of post*/
+
+.post_input,.post_body{
+    border:1px solid #C0C0C0!important;
+    width:96%;
+    border-radius: 5px;
+}
+
+.file{
+    left:15px;
+}
+
+.buttons{
+    left:-2px;
+    top:-50px;
+    display:block!important;
+    font-size: 1.15em;
+    position:relative;
+
+}
+
+@media screen and (max-width: 991.98px) {
+
+    .buttons{
+        left:-2px;
+        top:-30px;
+        display:block!important;
+        font-size: 1.15em;
+        position:inherit;
+    }
+
+    .container{
+        overflow: hidden!important;
+    }
+    .body_indexx{
+        background:#edeef0;
+        overflow-x: hidden;
+    }
+
+    .desktop_nav,.header_desktop{
+display:none;
+    }
+
+    .archive_head{
+        margin-top:20px;
+        font-size:20px;
+        font-weight: 600;
+
+    }
+
+
+    .nav,.archive_p,.hi_user{
+        display:block;
+    }
+
+
+    .sidenav a:not(:last-child) {display: none;}
+
+    .closebtn{
+        display:block!important;
+
+    }
+    .desktop_header{
+        display:none;
+    }
+    .hide{
+        display:block;
+        position: fixed;
+
+        top: 0;
+        left: 0;
+
+        color:#000;
+        margin-top: 28px;
+        margin-left: 25px;
+    }
+
+    .sidenav a.icon {
+        float: left;
+        display: block;
+
+    }
+
+    .sidenav{
+        height: 100%;
+        width:0;
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        background-color:#fff;
+        transition: 0.5s;
+        overflow-x: hidden;
+        z-index:100;
+
+
+    }
+
+
+    .health_profile{
+        font-size:22px;
+        font-weight: 500;
+    }
+
+    .main_nav{
+        display:block;
+    }
+
+    .nav{
+        background-color:#fff;
+        border-bottom: 1px solid #B0B0B0;
+        width:100%;
+        position: fixed;
+    }
+    .content{
+        margin:1px;
+    }
+    .add-post{
+        margin-left:2px;
+    }
+
+    .hi_user{
+        position: absolute;
+        bottom: 0;
+        font-family: Futura-Medium;
+        font-size: 16px;
+        color: black!important;
+        margin-left:10%;
+    }
+
+}
+
+
+@media (max-width: 576px) {
+
+    .file{
+        position:inherit;
+    }
+        .content{
+            margin:1px;
+        }
+
+
+        .add-post{
+            margin-left:2px;
+        }
+
+
+
+        .old{
+            width:135px;
+            padding:3px;
+        }
+
+        .new {
+            margin-left:8px;
+            padding:5px;
+
+        }
 }
 
 

@@ -1,0 +1,73 @@
+<!--  hat of website-->
+
+
+
+
+
+<div class = "container">
+    <div class="row">
+        <div class = "col-md-12 col-sm-3">
+    <div class="sidenav">
+
+        <div class = "banner">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+
+
+
+            <p class = "hi_user">
+                Hello  <%= user.login %>
+            </p>
+
+        </div>
+
+        <ul class = "navigation">
+
+            <li>
+
+                <a href="/users/<%= user.login %>"> <i class="fas fa-book"></i>    MY STORIES </a>
+
+            </li>
+
+
+
+            <li>
+                <a href="/post/add"> <i class="fas fa-plus-circle"></i> WRITE  A POST</a>
+            </li>
+
+            <li>
+                <a href="/archive/1"><i class="far fa-paper-plane"></i>  ALL POSTS</a>
+            </li>
+            <li>
+                <a href="#">  <i class="fas fa-question-circle"></i>HELP</a>
+            </li>
+
+            <li>
+                <a href="#"><i class="fas fa-cog"></i>SETTINGS</a>
+            </li>
+
+
+            <li>
+                <a href="/api/auth/logout"><i class="fas fa-sign-out-alt"></i>LOGOUT</a>
+            </li>
+        </ul>
+    </div>
+
+    <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+        <i class="fa fa-bars hide"></i>
+    </a>
+    </div>
+    </div>
+
+    <div class = "col-sm-offset-3">
+        <div class="d-flex justify-content-center  archive_head">
+
+            <p class = "archive_p">
+                Healthy Lifestyle
+
+            </p>
+        </div>
+    </div>
+
+</div>
+
+

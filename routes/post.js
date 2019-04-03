@@ -91,19 +91,20 @@ router.post('/add', async (req, res) => {
 
             res.json({
                 ok: false,
-                error: 'Все поля должны быть заполнены!',
+
+                error: 'Should not be empty fields!',
                 fields
             });
         } else if (title.length < 3 || title.length > 64) {
             res.json({
                 ok: false,
-                error: 'Длина заголовка от 3 до 64 символов!',
+                error: 'Length title from 3 to 64 characters!',
                 fields: ['title']
             });
         } else if (body.length < 3) {
             res.json({
                 ok: false,
-                error: 'Текст не менее 3х символов!',
+                error: 'Text no less than 3 characters!',
                 fields: ['body']
             });
         } else if (!postId) {

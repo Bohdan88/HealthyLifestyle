@@ -45,13 +45,15 @@ function posts(req,res) {
                 }
 
 
+
                 return Object.assign(post, {
                     body: converter.makeHtml(body)
                 })
             });
             models.Post.estimatedDocumentCount()
                 .then(estimatedDocumentCount => {
-                    res.render('archive/indexx', {
+                 // res.render('/', {
+                   res.render('archive/indexx', {
                         posts,
                         current: page,
                         pages: Math.ceil(estimatedDocumentCount / perPage),
@@ -72,11 +74,11 @@ console.log(posts)
 
 }
 
-router.get('/main', (req,res) => posts(req,res));
+//router.get('/main', (req,res) => posts(req,res));
+router.get('/', (req,res) => posts(req,res));
 
+router.get('/archive/:page', (req, res) => posts(req, res));
 
-
-router.get('/archive/:page', (req, res) => posts(req,res));
 // для доступа к постам
 
 router.get('/posts/:post', async(req, res, next) => {
@@ -123,7 +125,7 @@ router.get('/posts/:post', async(req, res, next) => {
 
                 //    })
 
-                console.log(comments)
+              //  console.log(comments)
 
                 //
                 const converter = new showdown.Converter();
@@ -220,6 +222,7 @@ router.get('/users/:login/:page*?', async (req, res) => {
         });
 
         res.render('archive/user', {
+       // res.render('/', {
             posts,
             _user: user,
             current: page,

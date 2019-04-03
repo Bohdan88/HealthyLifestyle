@@ -19,12 +19,7 @@ router.post('/add', async (req, res) => {
         const body = req.body.body;
         const parent = req.body.parent;
 
-        // if (!body) {
-        //   res.json({
-        //     ok: false,
-        //     error: 'Пустой комментарий'
-        //   });
-        // }
+
 
         try {
             if (!parent) {
@@ -55,6 +50,7 @@ router.post('/add', async (req, res) => {
                 });
 
                 const children = parentComment.children;
+
                 children.push(comment.id);
                 parentComment.children = children;
                 await parentComment.save();

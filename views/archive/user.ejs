@@ -4,8 +4,26 @@
 
 
 </head>
-<body>
+<body class = "body_indexx">
+
+
+
+<!-- all posts -->
+
+<% include ../layout/banner.ejs%>
+<div class = "main_nav">
+    <div class = "nav">
+        <%  include ../layout/nav.ejs%>
+    </div>
+</div>
+
+
+
 <div class="main">
+
+    <div class = "desktop_nav">
+        <% include ../layout/desktopNav.ejs%>
+    </div>
     <div class="container">
         <div class="content">
             <% for (var i = 0; i < posts.length; i++) { %>
@@ -19,13 +37,19 @@
                 </div>
                 <div class="body">
                     <%-posts[i].body %>
-                </div>
-                <div class="bottom">
-                    <div class="author">
+                    <div class="bottom">
+
+                        <div class = "comments user_comments">
+                            <a   href="/posts/<%=posts[i].url %>#<%=posts[i].id %>">Comments:
+                                <span class = "comments_a"> <%=posts[i].commentCount %></span>
+                            </a>
+
+                        </div>
+
 
                     </div>
-                    <a href="/">Comments</a>
                 </div>
+
             </div>
             <% } %>
 

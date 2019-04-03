@@ -17,14 +17,14 @@ $(function() {
 
         if (isNew) {
             commentForm.find('.cancel').hide();
-            commentForm.appendTo('.comment-list');
+            commentForm.appendTo('.h3_comment');
         } else {
             var parentComment = $(comment).parent();
             parentId = parentComment.attr('id');
             $(comment).after(commentForm);
         }
 
-        commentForm.css({ display: 'flex' });
+        commentForm.css({ display: 'flex', position: 'relative'});
     }
 
     // load
@@ -35,6 +35,8 @@ $(function() {
         form(false, this);
         $(this).hide();
     });
+
+
     // add form
 
 
@@ -67,7 +69,7 @@ $(function() {
             contentType: 'application/json',
             url: '/comment/add'
         }).done(function(data) {
-            console.log(data);
+           // console.log(data);
             if (!data.ok) {
                 if ( data.error === undefined) {
                     data.error = 'Unknown error'
@@ -76,11 +78,11 @@ $(function() {
                 $(commentForm).prepend(`<p class = "error">` + data.error + `</p>`)
             } else {
                 var newComment =
-                    '<ul><li style="background-color:#ffffe0;"><div class="head"><a href="/users/' +
+                    '<ul class = "ul_children"><li style="background-color:#ffffe0;"><div class="head"><a href="/users/' +
                     data.login +
                     '">' +
                     data.login +
-                    '</a><spam class="date">Только что</spam></div>' +
+                    '</a><spam class="date"> Just now</spam></div>' +
                     data.body +
                     '</li></ul>';
 

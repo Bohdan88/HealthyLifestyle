@@ -85,13 +85,14 @@ router.post('/image', (req, res) => {
         let error = '';
         if (err) {
             if (err.code === 'LIMIT_FILE_SIZE') {
-                error = 'Картинка не более 2mb!';
+                error = 'Picture no more than 2mb!';
+
             }
             if (err.code === 'EXTENTION') {
-                error = 'Только jpeg и png!';
+                error = 'Just jpeg and png!';
             }
             if (err.code === 'NOPOST') {
-                error = 'Обнови страницу!';
+                error = 'Refresh page!';
             }
         }
 

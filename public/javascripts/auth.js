@@ -44,6 +44,8 @@ $(function() {
         $('p.error').remove();
         $('input').removeClass('error')
 
+
+
         let data = {
             email: $('#register-email').val(),
             login: $('#register-login').val(),
@@ -71,7 +73,10 @@ $(function() {
                     })
                 }
             } else {
-                $(location).attr('href', '/');
+           //     $(location).attr('href', '/');
+
+
+                $(location).attr('href', 'archive/1');
 
                 // $('.register .after').after('<p class = "success">' + data + '</p>')
             }
@@ -111,7 +116,8 @@ $(function() {
                     })
                 }
             } else {
-                $(location).attr('href', '/');
+            //    $(location).attr('href', '/');
+                $(location).attr('href', 'archive/1');
               //  $('.login .after').after('<p class = "success">' + data + '</p>')
             }
 

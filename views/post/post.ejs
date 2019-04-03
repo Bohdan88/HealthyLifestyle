@@ -1,19 +1,32 @@
 <%  include ../layout/header.ejs %>
 
-<link rel = "stylesheet" href = <%= assetFingerprint('/stylesheets/post.css') %>
+<link rel = "stylesheet" href = <%= assetFingerprint('/stylesheets/comments.css') %>
 
 </header>
 
-<body>
+<body class = "body_indexx">
+
+<% include ../layout/banner.ejs%>
+<div class = "main_nav">
+    <div class = "nav">
+        <%  include ../layout/nav.ejs%>
+    </div>
+</div>
+
+
 <div class="main">
-    <div class="container">
+
+    <div class = "desktop_nav">
+        <% include ../layout/desktopNav.ejs%>
+    </div>
+
         <div class="content">
 
             <div class="post">
                 <div class="top">
-                    <h2>
+                    <h5>
                         <%=post.title %>
-                    </h2>
+                    </h5>
                 </div>
                 <div class="body">
 
@@ -29,17 +42,17 @@
             </div>
 
             <div class="comments" id="<%=post.id %>">
-                <h3>Comments</h3>
-                <!-- Где будут храниться комменты -->
+
+                <h3 class = "h3_comment">Comments</h3>
+
                 <div class="comment-list">
                     <%- include('../layout/comments.ejs', {items: comments}) %>
 
-                  <!--  <span class="link" id="new">Оставить комментарий</span>-->
                     <form class="comment">
-                        <textarea name="body"></textarea>
+                        <textarea class = "input"  type="text" name="body" placeholder="Leave your comment"></textarea>
                         <div class="buttons">
-                            <button class="cancel secondary">Cancel</button>
-                            <button class="send">Send</button>
+                            <button class="cancel secondary old">Cancel</button>
+                            <button class="send new">Send</button>
                         </div>
                     </form>
                 </div>
@@ -51,7 +64,6 @@
 
 
     </div>
-</div>
 
 
 
