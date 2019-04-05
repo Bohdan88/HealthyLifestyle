@@ -4,42 +4,69 @@ const Schema = mongoose.Schema;
 const Post =  require('./post')
 
 
-const schema = new Schema(
+const schema = new Schema({
 
+    body: {
+    type: String,
+        required: true
+},
+post: {
+    type: Schema.Types.ObjectId,
+        ref: 'Post'
+},
+parent: {
+    type: Schema.Types.ObjectId,
+        ref: 'Comment'
+},
+owner: {
+    type: Schema.Types.ObjectId,
+        ref: 'User',
+        autopopulate: true
+},
+children: [
     {
-        body: {
-            type: String,
-            required: true
-        },
+        type: Schema.Types.ObjectId,
+        ref: 'Comment',
+        autopopulate: true
+    }
+],
 
-        owner: {
-            type: Schema.Types.ObjectId,
-            ref: "User",
-            autopopulate: true
+  //{
+  //    body: {
+  //        type: String,
+  //        required: true
+  //    //},
 
-        },
+  //    owner: {
+  //        type: Schema.Types.ObjectId,
+  //        ref: "User",
+  //        autopopulate: true
 
-        post: {
-            type: Schema.Types.ObjectId,
-            ref: "Post"
-        },
+  //    },
 
-        children: [{
-            type: Schema.Types.ObjectId,
-            ref: "Comment",
-            autopopulate: true
+  //    post: {
+  //        type: Schema.Types.ObjectId,
+  //        ref: "Post"
+  //    },
 
-        }],
+  //    children: [{
+  //        type: Schema.Types.ObjectId,
+  //        ref: "Comment",
+  //        autopopulate: true
+
+  //    }],
 
         createdAt: {
             type: Date,
             default: Date.now
-        },
-        // для оптимизации
-        post: {
-            type: Schema.Types.ObjectId,
-            ref: "Comment"
-        },
+        }
+      //  },
+
+        //
+    //   post: {
+    //       type: Schema.Types.ObjectId,
+    //       ref: "Comment"
+    //   },
 
 
     }, {
@@ -49,10 +76,22 @@ const schema = new Schema(
 
 //schema.pre('save',  async function(next) {
 //
-//    this.url = tr.slugify(this.title)
+//   // this.url = tr.slugify(this.title)
+//
+//    if (this.isNew) {
+//        console.log(this.post)
+//    }
 //    next();
 //});
-//
+
+schema.pre('save', async function(next) {
+    if (this.isNew) {
+        await Post.incCommentCount(this.post);
+    }
+    next();
+});
+
+
 schema.plugin(require('mongoose-autopopulate'));
 
 

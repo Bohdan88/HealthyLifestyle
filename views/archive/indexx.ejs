@@ -12,88 +12,89 @@
 
 <% include ../layout/banner.ejs%>
 <div class = "main_nav">
-<div class = "nav">
-    <%  include ../layout/nav.ejs%>
-</div>
+    <div class = "nav">
+        <%  include ../layout/nav.ejs%>
+    </div>
 </div>
 
 
 <div class="main">
 
-        <div class = "desktop_nav">
-            <% include ../layout/desktopNav.ejs%>
-        </div>
+    <div class = "desktop_nav">
+        <% include ../layout/desktopNav.ejs%>
+    </div>
 
-        <div class="content">
+    <div class="content">
 
-            <% for (var i = 0; i < posts.length; i++) { %>
-            <div class="post" id = "post">
-                <div class="top">
-                    <h5 class = "post_title">
-                        <a class = "post_title_color" href="/posts/<%=posts[i].url %>">
-                            <%=posts[i].title %>
-                        </a>
-                        <% if (posts[i].owner.login === user.login) { %>
-                        <a style="color: black;text-decoration: none;" href="/post/edit/<%=posts[i].id %>">✎</a>
-                        <% } %>
-                    </h5>
-                </div>
-                <div class="body bodyPost" id = "body">
-
-                        <%-posts[i].body %>
-
-
-
-                </div>
-
-                <div class="bottom">
-
-
-
-                            <div class = "author">
-
-
-                        Author:
-                        <a  class = "author_a" href="/users/<%=posts[i].owner.login %>">
-                            <%=posts[i].owner.login %>
-                        </a>
-                                <div class = "comments">
-                                    <a   href="/posts/<%=posts[i].url %>#<%=posts[i].id %>">Comments:
-                                        <span class = "comments_a"> <%=posts[i].commentCount %></span>
-                                    </a>
-
-                                </div>
-                    </div>
-
-
-
-
-
-
-                </div>
+        <% for (var i = 0; i < posts.length; i++) { %>
+        <div class="post" id = "post">
+            <div class="top">
+                <h5 class = "post_title">
+                    <a class = "post_title_color" href="/posts/<%=posts[i].url %>">
+                        <%=posts[i].title %>
+                    </a>
+                    <% if (posts[i].owner.login === user.login) { %>
+                    <a style="color: black;text-decoration: none;" href="/post/edit/<%=posts[i].id %>">✎</a>
+                    <% } %>
+                </h5>
             </div>
-            <% } %>
+            <div class="body bodyPost" id = "body">
 
-            <div class="pagination">
-                <% if (current > 1) { %>
-                    <a class="new" href="/archive/<%= Number(current) - 1 %>"> << Prior Page</a>
-                <% } %>
-                    <!--
+                <%-posts[i].body %>
+
+
+
+            </div>
+
+            <div class="bottom">
+
+
+
+                <div class = "author">
+
+                    <a href="/posts/<%=posts[i].url %>#<%=posts[i].id %>">
+                    Author:
+                    <a  class = "author_a" href="/users/<%=posts[i].owner.login %>">
+                        <%=posts[i].owner.login %>
+                    </a>
+                    <div class = "comments">
+                        <a   href="/posts/<%=posts[i].url %>#<%=posts[i].id %>">
+                             Comments:
+                            <span class = "comments_a"> <%=posts[i].commentCount %></span>
+                        </a>
+
+                    </div>
+                </div>
+
+
+
+
+
+
+            </div>
+        </div>
+        <% } %>
+
+        <div class="pagination">
+            <% if (current > 1) { %>
+                <a class="new" href="/archive/<%= Number(current) - 1 %>"> << Prior Page</a>
+            <% } %>
+            <!--
                 <% if (current == 2) { %>
                     <a class="new" href="/archive/1">← To main</a>
                 <% } %> -->
-                <% if (pages > 0 && current < pages) { %>
+            <% if (pages > 0 && current < pages) { %>
 
-                    <a class="old" href="/archive/<%= Number(current) + 1 %>">  RECENT >></a>
-                <% } %>
-
-            </div>
-
-
+                <a class="old" href="/archive/<%= Number(current) + 1 %>">  RECENT >></a>
+            <% } %>
 
         </div>
 
+
+
     </div>
+
+</div>
 
 
 

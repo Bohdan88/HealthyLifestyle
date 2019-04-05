@@ -25,6 +25,7 @@ a {
 }
 */
 
+
 .logo{
     background:url(../img/logo.png) no-repeat center top;
     height:120px;
@@ -277,7 +278,7 @@ form.comment {
 }
 
 .buttons{
-    left:-2px;
+    left:-20px;
     top:-50px;
     display:block!important;
     font-size: 1.15em;

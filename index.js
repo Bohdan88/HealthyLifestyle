@@ -69,16 +69,18 @@ app.get('/', (req,res) => {
 });
 
 
-//app.get('/main', (req,res) => {
-//    const id = req.session.userId;
-//    const login = req.session.userLogin;
-//    res.render('main', {
-//        user: {
-//            id,
-//            login
-//        }
-//    })
-//});
+app.get('/help', (req,res) => {
+    const id = req.session.userId;
+    const login = req.session.userLogin;
+    res.render('help/help', {
+        user: {
+            id,
+            login
+        }
+    })
+});
+
+
 
 // routes
 app.use('/api/auth/', routes.auth)
@@ -86,6 +88,14 @@ app.use('/post', routes.post);
 app.use('/', routes.archive);
 app.use('/comment', routes.comment);
 app.use('/upload', routes.upload)
+
+//app.use('/help', routes.help)
+
+
+
+
+
+
 
 
 //app.post('/', (req,res) => {

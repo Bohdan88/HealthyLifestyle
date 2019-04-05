@@ -52,7 +52,29 @@ let clearText = (text) => {
 }
 
 
-//document.body.removeChild(bodyPost)
-//clearText(bodyPost)
-/* eslint-enable no-undef */
+// help page scripts
 
+let tree = document.querySelector('.list_questions')
+
+if(tree === null) {} else {
+
+    tree.onclick = function (e) {
+        let target = e.target;
+
+        if (!target.classList.contains('parent_question')) {
+            return
+        }
+
+        if (target.classList.contains('parent_question')) {
+            target.classList.toggle('open')
+
+        }
+
+        let childrenContainer = target.parentNode.querySelector('.children')
+
+        childrenContainer.classList.toggle('children_question')
+
+
+    }
+
+}

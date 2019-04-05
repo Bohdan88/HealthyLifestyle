@@ -11,28 +11,28 @@
 <body>
 
 <% if(!user.id && !user.login) {%>
-<div class = "container" id = "cont">
-    <div class="row">
-        <div class = "col-sm-12 health_head">
-            <div class = "col-lg-12">
-                <div class="d-flex justify-content-center">
-                    <p class = "health_p">
-                        Healthy Lifestyle
-                    </p>
-                </div>
-
+    <div class = "container" id = "cont">
+        <div class="row">
+            <div class = "col-sm-12 health_head">
                 <div class = "col-lg-12">
-                    <div class = "d-flex justify-content-center">
-
-                        <div class = "logo"></div>
+                    <div class="d-flex justify-content-center">
+                        <p class = "health_p">
+                            Healthy Lifestyle
+                        </p>
                     </div>
 
+                    <div class = "col-lg-12">
+                        <div class = "d-flex justify-content-center">
 
+                            <div class = "logo"></div>
+                        </div>
+
+
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 <% } else {%>
 
 
@@ -40,30 +40,28 @@
 
 
 
-            <div class = "container" id = "cont">
-                <div class="row">
-                    <div class = "col-sm-12 health_head">
-                        <div class = "col-lg-12">
-                            <div class="d-flex justify-content-center">
-                                <p class = "health_profile">
-                                    Healthy Lifestyle
+<div class = "container" id = "cont">
+    <div class="row">
+        <div class = "col-sm-12 health_head">
+            <div class = "col-lg-12">
+                <div class="d-flex justify-content-center">
+                    <p class = "health_profile">
+                        Healthy Lifestyle
 
-                                </p>
-                            </div>
-
-
-                        </div>
-
-                        <!--  side nav -->
-
-                       <%  include layout/nav.ejs%>
-                    </div>
+                    </p>
+                </div>
 
 
+            </div>
 
-<%}%>
+            <!--  side nav -->
+
+            <%  include layout/nav.ejs%>
+        </div>
 
 
+
+        <%}%>
 
 
 
@@ -76,8 +74,10 @@
 
 
 
-            <!-- input form  -->
-            <% if(!user.id && !user.login) {%>
+
+
+        <!-- input form  -->
+        <% if(!user.id && !user.login) {%>
 
             <div class = "form d-flex justify-content-center">
                 <form  method = "post" class = "login">
@@ -102,49 +102,49 @@
             <!-- registration -->
 
 
-            <div class = "form d-flex justify-content-center">
-                <form  method="post" class="register">
-                    <div class = "after"></div>
+        <div class = "form d-flex justify-content-center">
+            <form  method="post" class="register">
+                <div class = "after"></div>
 
-            <div class="form-group d-flex justify-content-center">
+                <div class="form-group d-flex justify-content-center">
 
-                <input name = "email" type="text" class="form-control input_email" id="register-email"   placeholder="Email">
-
-
-                    </div>
-
-                    <div class="form-group d-flex justify-content-center">
-                <input name = "login" type="text" class="form-control input_email" id="register-login"   placeholder="Login">
-
-                    </div>
-
-                    <div class="form-group">
-                        <input name = "password" type="password" class="form-control input_pass" id="register-password" placeholder="Password" required>
-                    </div>
+                    <input name = "email" type="text" class="form-control input_email" id="register-email"   placeholder="Email">
 
 
-                    <div class="form-group">
-                        <input name = "passwordConfirm" type="password" class="form-control input_repass" id="register-password-confirm" placeholder="Repeat password">
-                    </div>
+                </div>
+
+                <div class="form-group d-flex justify-content-center">
+                    <input name = "login" type="text" class="form-control input_email" id="register-login"   placeholder="Login">
+
+                </div>
+
+                <div class="form-group">
+                    <input name = "password" type="password" class="form-control input_pass" id="register-password" placeholder="Password" required>
+                </div>
 
 
+                <div class="form-group">
+                    <input name = "passwordConfirm" type="password" class="form-control input_repass" id="register-password-confirm" placeholder="Repeat password">
+                </div>
 
 
 
-                    <button type="submit" class="btn btn-primary button mail register-button"  id = "registerButton">Register</button>
 
 
-                </form>
-                <% } else { %>
+                <button type="submit" class="btn btn-primary button mail register-button"  id = "registerButton">Register</button>
+
+
+            </form>
+            <% } else { %>
 
 
 
-                <% } %>
+            <% } %>
 
-            </div>
+        </div>
 
 
-            <% if(!user.id && !user.login) {%>
+        <% if(!user.id && !user.login) {%>
             <div class = "footer">
                 <div class = "register_footer">
 
@@ -160,9 +160,9 @@
 
             </div>
 
-            <% }%>
-        </div>
+        <% }%>
     </div>
+</div>
 
 
 <%  include layout/footer%>
