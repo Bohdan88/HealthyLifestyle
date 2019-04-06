@@ -1,7 +1,7 @@
 
 
 module.exports = {
-    PORT: process.env.PORT || 2002,
+    PORT: process.env.PORT || 2003,
     SESSION_SECRET: process.env.SESSION_SECRET,
     DESTINATION: 'uploads'
 
