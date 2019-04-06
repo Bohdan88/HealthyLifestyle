@@ -172,7 +172,7 @@ router.get('/posts/:post', async(req, res, next) => {
 });
 
 
-//  user page ( для постов )
+ // user page ( для постов )
 router.get('/users/:login/:page*?', async (req, res) => {
     const userId = req.session.userId;
     const userLogin = req.session.userLogin;
@@ -194,11 +194,11 @@ router.get('/users/:login/:page*?', async (req, res) => {
             })
                 .skip(perPage * page - perPage)
                 .limit(perPage)
-                .sort({ createdAt: -1 })
+                .sort({createdAt: -1})
                 .populate('uploads');
 
 
-        const count  = await
+        const count = await
             models.Post.estimatedDocumentCount({
                 owner: user.id
             });
@@ -208,7 +208,7 @@ router.get('/users/:login/:page*?', async (req, res) => {
         posts = posts.map(post => {
             let body = post.body;
 
-            if(post.uploads.length) {
+            if (post.uploads.length) {
                 post.uploads.forEach(upload => {
 
                     body = body.replace(`image${upload.id}`, `/${config.DESTINATION}${upload.path}`);
@@ -222,7 +222,7 @@ router.get('/users/:login/:page*?', async (req, res) => {
         });
 
         res.render('archive/user', {
-       // res.render('/', {
+            // res.render('/', {
             posts,
             _user: user,
             current: page,
@@ -235,46 +235,46 @@ router.get('/users/:login/:page*?', async (req, res) => {
 
 
     } catch (error) {
-        throw new Error ('Server error')
+        throw new Error('Server error')
     }
 
-    ////  models.User.findOne({
-    ////      // берем логин от юзера
-    ////      login
-    ////  }).then(user => {
-    ////      models.Post.find({
-    ////          //  получаем айдишник юзера по посту
-    ////          owner: user.id
-    ////      })
-    ////          .skip(perPage * page - perPage)
-    ////          .limit(perPage)
-    ////          .sort({ createdAt: -1 })
-    ////          .then(posts => {
-    ////              models.Post.estimatedDocumentCount({
-    ////                  owner: user.id
-    ////              })
-    ////                  .then(count => {
-    ////                      res.render('archive/user', {
-    ////                          posts,
-    ////                          _user: user,
-    ////                          current: page,
-    ////                          pages: Math.ceil(count / perPage),
-    ////                          user: {
-    ////                              id: userId,
-    ////                              login: userLogin
-    ////                          }
-    ////                      });
-    ////                  })
-    ////                  .catch(() => {
-    ////                      throw new Error('Server Error');
-    ////                  });
-    ////          })
-    //          .catch(() => {
-    //              throw new Error('Server Error');
-    //          });
-    //  });
+//    ////  models.User.findOne({
+//    ////      // берем логин от юзера
+//    ////      login
+//    ////  }).then(user => {
+//    ////      models.Post.find({
+//    ////          //  получаем айдишник юзера по посту
+//    ////          owner: user.id
+//    ////      })
+//    ////          .skip(perPage * page - perPage)
+//    ////          .limit(perPage)
+//    ////          .sort({ createdAt: -1 })
+//    ////          .then(posts => {
+//    ////              models.Post.estimatedDocumentCount({
+//    ////                  owner: user.id
+//    ////              })
+//    ////                  .then(count => {
+//    ////                      res.render('archive/user', {
+//    ////                          posts,
+//    ////                          _user: user,
+//    ////                          current: page,
+//    ////                          pages: Math.ceil(count / perPage),
+//    ////                          user: {
+//    ////                              id: userId,
+//    ////                              login: userLogin
+//    ////                          }
+//    ////                      });
+//    ////                  })
+//    ////                  .catch(() => {
+//    ////                      throw new Error('Server Error');
+//    ////                  });
+//    ////          })
+//    //          .catch(() => {
+//    //              throw new Error('Server Error');
+//    //          });
+//    //  });
+//});
+//
 });
-
-
 
 module.exports = router;
