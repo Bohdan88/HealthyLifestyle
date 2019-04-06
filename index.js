@@ -7,7 +7,7 @@ const config = require('./config')
 const staticAsset = require('static-asset')
 const session = require('express-session')
 const MongoStore = require('connect-mongo')(session)
-
+const port = process.env.PORT || 2003
 const MONGO_URL = 'mongodb://Bohdan:azaza1488@ds131954.mlab.com:31954/heroku_nchspl5d'
 
 
@@ -110,4 +110,4 @@ app.use('/upload', routes.upload)
 
 
 
-app.listen( 2003, () => console.log('Example app'))
+app.listen( port, () => console.log('Example app'))
