@@ -38,10 +38,43 @@
 
 
 
+    <% include ./layout/banner.ejs%>
+        <div class = "main_nav">
+            <div class = "nav">
+                <%  include ./layout/nav.ejs%>
+            </div>
+        </div>
+<div class="main">
 
+    <div class = "desktop_nav">
+        <% include ./layout/desktopNav.ejs%>
+    </div>
 
 <div class = "container" id = "cont">
-    <div class="row">
+    <div class = "welcome">
+        <h1>WELCOME!</h1>
+    </div>
+
+    <div class = "welcome__content">
+        This is a blog for people who are united by the idea of a healthy lifestyle.<br>
+        We believe everyone deserves
+        to have a healthy body.<br>
+        Our business idea is <em>
+        “to offer a wide range of simple and healthy  recipes".
+        </em><br>
+         We're excited to help you on your journey!
+    </div>
+    <br>   <br>   <br>
+
+
+    <div class = "madeby">
+            Web application made by  <br><em> Martyniuk Bohdan <br> 2019</em>
+    </div>
+
+</div>
+
+</div>
+   <!-- <div class="row">
         <div class = "col-sm-12 health_head">
             <div class = "col-lg-12">
                 <div class="d-flex justify-content-center">
@@ -54,12 +87,10 @@
 
             </div>
 
-            <!--  side nav -->
+         side nav -->
 
-            <%  include layout/nav.ejs%>
-        </div>
-
-
+          <!--  <% // include layout/nav.ejs%> -->
+            <p class = "created"> Created by Martyniuk Bohdan</p>
 
         <%}%>
 
