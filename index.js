@@ -8,6 +8,7 @@ const staticAsset = require('static-asset')
 const session = require('express-session')
 const MongoStore = require('connect-mongo')(session)
 
+const MONGO_URL = 'mongodb://Bohdan:azaza1488@ds131954.mlab.com:31954/heroku_nchspl5d'
 
 
 const routes = require('./routes')
@@ -28,10 +29,11 @@ mongoose.connection
 
 
 
+mongoose.connect(MONGO_URL ,  { useNewUrlParser: true ,
+      useCreateIndex: true});
 
-
-mongoose.connect('mongodb://localhost/databaseChat',  { useNewUrlParser: true ,
-    useCreateIndex: true})
+//mongoose.connect('mongodb://localhost/databaseChat',  { useNewUrlParser: true ,
+ //   useCreateIndex: true})
 
 // sessions
 
