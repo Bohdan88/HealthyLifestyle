@@ -664,6 +664,23 @@ textarea {
     }
 
 
+    .main {
+        justify-content: flex-end;
+    }
+
+    .new{
+        width:110px!important;
+        margin-top:20px;
+
+    }
+
+    .h3_comment{
+        text-align: center;
+    }
+
+    .old{
+        width:110px;
+    }
 }
 
 
