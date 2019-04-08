@@ -23,7 +23,7 @@ console.log(form)
        return
     }
 
-    form.style.display = 'none'
+    form.style.display = 'none!important'
 
     addPost.style.backgroundColor = 'rgba(34,36,36,0.80)'
 }

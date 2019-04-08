@@ -111,7 +111,7 @@ $(function() {
 
                 if (data.fields) {
                     data.fields.forEach(function (item) {
-                        $('input[name=' + item + ']').addClass('error')
+                        $('input[name='  + item + ']').addClass('error')
 
                     })
                 }
