@@ -246,7 +246,7 @@ textarea {
 }
 
 .buttons {
-    display:flex;
+    /*display:flex;*/
     width: 100%;
 
 }
@@ -325,7 +325,7 @@ textarea {
 
 
     margin-left: 400px;
-    margin-right: -8px;
+    margin-right: -80px;
     font-weight: 500;
     background: #00CA9D;
     font-family: Futura-Medium;
@@ -510,6 +510,7 @@ textarea {
 
     .content{
         margin-top:90px;
+        margin-left: 3%;
     }
 
 
