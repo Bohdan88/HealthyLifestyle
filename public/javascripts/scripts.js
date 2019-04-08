@@ -13,17 +13,18 @@ function myFunction() {
     let body = document.getElementsByTagName('BODY')[0]
     let addPost = document.querySelector('.post-form');
     let form = document.querySelector('.input')
+    let buttons = document.querySelector('.buttons')
 
     body.style.backgroundColor = 'rgba(34,36,36,0.80)'
 
-console.log(form)
+    buttons.style.zIndex = '-1';
    // form.style.
+    form.style.zIndex = '-1'
 
-    if (!addPost || !form) {
+    if (!addPost || !form || !buttons) {
        return
     }
 
-    form.style.display = 'none!important'
 
     addPost.style.backgroundColor = 'rgba(34,36,36,0.80)'
 }
@@ -33,14 +34,17 @@ function closeNav() {
     let body = document.getElementsByTagName('BODY')[0]
     let addPost = document.querySelector('.post-form')
     let form = document.querySelector('.input')
+    let buttons = document.querySelector('.buttons')
 
-    body.style.backgroundColor = '#fff'
-    if (!addPost || !form ) {
+    body.style.backgroundColor = '#fff';
+    form.style.zIndex = '0';
+    buttons.style.zIndex = '0';
+
+    if (!addPost || !form || !buttons ) {
 return
     }
 
 
-    form.style.display = 'flex'
     addPost.style.backgroundColor = '#fff'
 
 }

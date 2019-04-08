@@ -204,6 +204,7 @@ a:hover{
 .comment-list{
     margin-top:3%;
     margin-left:-3%;
+    margin-right: -2%;
 }
 
 
@@ -215,6 +216,7 @@ a:hover{
 
 
 form{
+
     display:flex;
     flex-direction: column;
     padding-bottom: 20px;
@@ -320,10 +322,12 @@ textarea {
 }
 
 .new{
-    margin-right: 19px;
+
+
+    margin-left: 400px;
+    margin-right: -8px;
     font-weight: 500;
     background: #00CA9D;
-    margin-left:20px;
     font-family: Futura-Medium;
     padding:10px;
     float:right;
@@ -422,23 +426,22 @@ textarea {
 
     }
     .new {
+        float:none!important;
         margin-right: -2px;
         font-weight: 500;
         background: #00CA9D;
         margin-left: 20px;
         font-family: Futura-Medium;
         padding: 10px;
-
-
         color: #fff;
         border-radius: 5px;
-
+        position: relative;
+        left: 70px;
     }
 
 
     .content{
-        margin-top:90px;
-        margin-right:10px;
+       margin:auto;
     }
 
     .desktop_nav{
@@ -682,6 +685,7 @@ textarea {
     }
 
     .h3_comment{
+        margin-top:25px;
         text-align: center;
     }
 
@@ -695,9 +699,18 @@ textarea {
         color: red;
     }
     .buttons {
-       display:block;
+        display:block;
         width: 100%;
 
+    }
+
+
+    .input{
+        font-size: 30px;
+    }
+
+    .old{
+        float:none;
     }
 
 }
