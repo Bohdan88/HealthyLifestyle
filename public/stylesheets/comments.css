@@ -244,10 +244,11 @@ textarea {
 }
 
 .buttons {
-    margin-right:2px;
     width: 100%;
 
 }
+
+
 .input::-webkit-input-placeholder {
     text-align: right;
     font-size:15px;
@@ -328,6 +329,9 @@ textarea {
     color:#fff;
     border-radius: 5px;
     width:150px;
+
+    position:relative;
+    top:-47px;
 
 }
 
@@ -424,6 +428,7 @@ textarea {
         margin-left: 20px;
         font-family: Futura-Medium;
         padding: 10px;
+
 
         color: #fff;
         border-radius: 5px;
