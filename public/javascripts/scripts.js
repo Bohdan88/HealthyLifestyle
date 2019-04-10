@@ -15,17 +15,19 @@ function myFunction() {
     let form = document.querySelector('.input')
     let buttons = document.querySelector('.buttons')
 
-    body.style.backgroundColor = 'rgba(34,36,36,0.80)'
 
-    buttons.style.zIndex = '-1';
    // form.style.
-    form.style.zIndex = '-1'
-
+    if ( buttons === null) {
+        return
+    }
     if (!addPost || !form || !buttons) {
        return
     }
 
+    body.style.backgroundColor = 'rgba(34,36,36,0.80)'
+    form.style.zIndex = '-1'
 
+    buttons.style.zIndex = '-1';
     addPost.style.backgroundColor = 'rgba(34,36,36,0.80)'
 }
 
@@ -36,14 +38,14 @@ function closeNav() {
     let form = document.querySelector('.input')
     let buttons = document.querySelector('.buttons')
 
-    body.style.backgroundColor = '#fff';
-    form.style.zIndex = '0';
-    buttons.style.zIndex = '0';
+
 
     if (!addPost || !form || !buttons ) {
 return
     }
-
+    body.style.backgroundColor = '#fff';
+    form.style.zIndex = '0';
+    buttons.style.zIndex = '0';
 
     addPost.style.backgroundColor = '#fff'
 
@@ -98,4 +100,18 @@ if(tree === null) {} else {
 let icon = document.querySelector('.icon')
 
 
+function hideButton() {
+    let x = document.body.querySelector(".sidenav")
 
+    if (x.className == 'sidenav') {
+        x.className += " responsive"
+    }
+    x.style.width = "237px";
+
+    let buttons = document.querySelector('.buttons')
+    let form = document.querySelector('.input')
+
+
+    form.style.zIndex = '-1'
+    buttons.style.zIndex = '-1';
+}
