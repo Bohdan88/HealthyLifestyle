@@ -327,12 +327,7 @@ textarea {
     margin-left: 400px;
     margin-right: -80px;
     font-weight: 500;
-    background: red;
-
-
-
-
-;
+    background: #00CA9D;
     font-family: Futura-Medium;
     padding:10px;
     float:right;
@@ -667,7 +662,10 @@ textarea {
 
 @media (max-width: 767.98px) {
 
-
+    .content {
+        margin-top: 90px;
+        margin-left: 19%;
+    }
 
     .content_help{
         display: block;
